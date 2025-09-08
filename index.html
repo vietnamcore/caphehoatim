@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Café Hoa Tím · Siêu VIP</title>
+  <meta name="description" content="Menu siêu VIP đỉnh cao với bộ lọc hạng mục, giỏ hàng và giao diện mượt mà." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header" id="top">
+    <a class="brand" href="#top" aria-label="Trang chủ Café Hoa Tím">
+      <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M3 8h13a4 4 0 0 0 0 8H5a2 2 0 0 1-2-2V8zm13 0h3a3 3 0 1 1 0 6h-3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      Café Hoa Tím
+    </a>
+    <nav class="nav" aria-label="Điều hướng">
+      <a href="#menu" class="nav-link">Menu</a>
+      <a href="#uu-dai" class="nav-link">Ưu đãi</a>
+      <a href="#lien-he" class="nav-link">Liên hệ</a>
+      <button id="themeToggle" class="btn ghost sm" aria-pressed="false" aria-label="Đổi chế độ sáng/tối">🌓</button>
+      <button id="cartToggle" class="btn primary sm" aria-label="Mở giỏ hàng">🛒 <span id="cartCount">0</span></button>
+    </nav>
+    <button class="nav-toggle" aria-label="Mở menu" onclick="document.body.classList.toggle('show-nav')">☰</button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-inner">
+        <h1>Siêu VIP · Đỉnh cao vị giác</h1>
+        <p>Order nhanh, lọc theo mục, xem giá rõ ràng. Trải nghiệm mượt như nhung.</p>
+        <div class="cta">
+          <a class="btn primary" href="#menu">Vào menu</a>
+          <a class="btn ghost" href="#uu-dai">Xem ưu đãi</a>
+        </div>
+      </div>
+      <div class="aurora" aria-hidden="true"></div>
+    </section>
+
+    <section id="menu" class="section">
+      <header class="section-header">
+        <h2>Menu chọn mục</h2>
+        <div class="controls">
+          <div class="tabs" role="tablist" aria-label="Hạng mục">
+            <!-- Tabs injected by JS -->
+          </div>
+          <label class="search">
+            <input id="searchInput" type="search" placeholder="Tìm đồ uống… (ví dụ: cacao, chanh)">
+            <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 21l-4.3-4.3M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15z" stroke="currentColor" fill="none" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </label>
+        </div>
+      </header>
+
+      <div id="menuGrid" class="grid" aria-live="polite">
+        <!-- Items injected by JS -->
+      </div>
+
+      <div class="empty-state" id="emptyState" hidden>
+        <p>Không tìm thấy món phù hợp. Thử từ khóa khác hoặc chọn hạng mục khác nhé.</p>
+      </div>
+    </section>
+
+    <section id="uu-dai" class="section">
+      <header class="section-header">
+        <h2>Ưu đãi hôm nay</h2>
+      </header>
+      <ul class="deals">
+        <li>💬 Bình luận 100: <strong>-30%</strong></li>
+        <li>👀 View 5K & 10K: <strong>-40%</strong></li>
+        <li>🧡 Follow 500: còn <strong>60K</strong> — 1,000: <strong>89K</strong></li>
+      </ul>
+      <p class="note">*Áp dụng khi mua trực tiếp tại quán. Không cộng dồn với ưu đãi khác.</p>
+    </section>
+
+    <section id="lien-he" class="section">
+      <header class="section-header">
+        <h2>Liên hệ</h2>
+      </header>
+      <div class="contact">
+        <p><strong>Địa chỉ:</strong> 123 Hoa Tím, P. Linh X., TP. Cần Thơ</p>
+        <p><strong>Giờ mở cửa:</strong> 07:00 – 22:00 (hàng ngày)</p>
+        <p><strong>Điện thoại:</strong> 0900 000 000</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Cart Drawer -->
+  <aside id="cartDrawer" class="cart" aria-label="Giỏ hàng" aria-hidden="true">
+    <header class="cart-header">
+      <h3>Giỏ hàng</h3>
+      <button class="btn ghost sm" id="cartClose" aria-label="Đóng giỏ">✕</button>
+    </header>
+    <div id="cartItems" class="cart-items"></div>
+    <footer class="cart-footer">
+      <div class="row">
+        <span>Tạm tính</span>
+        <strong id="cartSubtotal">0đ</strong>
+      </div>
+      <div class="row small">
+        <span>VAT (8%)</span>
+        <span id="cartVat">0đ</span>
+      </div>
+      <div class="row total">
+        <span>Tổng</span>
+        <strong id="cartTotal">0đ</strong>
+      </div>
+      <button id="checkoutBtn" class="btn primary full">Đặt món (demo)</button>
+      <p class="mini">*Demo front-end, không thu thập thông tin cá nhân.</p>
+    </footer>
+  </aside>
+
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden>Đã thêm vào giỏ ✅</div>
+
+  <footer class="site-footer">
+    <p>© 2025 Café Hoa Tím · Made for GitHub Pages</p>
+    <a class="btn ghost sm" href="#top">Lên đầu trang ↑</a>
+  </footer>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
